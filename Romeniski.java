@@ -1,5 +1,7 @@
  
 import java.io.*;
+import java.util.*;
+
 class Romeniski {
 
 	public static void main ( String[] args) {
@@ -25,12 +27,27 @@ class Romeniski {
 			
 			for ( i=0; i < romen_skaicius.length(); i++ ){
 				
-				substr [ i ] = romen_skaicius.substring( i, ( i + 1 ) );
+				substr [ i ] = romen_skaicius.substring( i, i + 1  );
 				System.out.println(substr [ i ]);
 			}
-		}
-		catch(Exception e){
-			System.out.println("Ivestas neteisingas simbolis. Iveskite romeniska skaiciu: ");
+			for (i=0; i < substr.length; i++){
+				
+				
+				int nr_masyve = java.util.Arrays.asList(romeniski_skaiciai).indexOf(substr [ i ]);
+				
+				if ( nr_masyve >= 0 ) { 
+				
+					System.out.println(arabiski_skaiciai [ nr_masyve ]);
+				}
+			}
+			
+		} catch( Exception e ) {
+			
+			System.out.println("Ivestas neteisingas simbolis. Klaidos informacija: ");
+			e.printStackTrace();
+			System.out.println("Skubiai skambinkite Tomai nesvarbu diena ar naktis Tel nr.: ");
+			
+			
 		}
 		System.out.println( "ate" );
 	}    
