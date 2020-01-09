@@ -12,6 +12,9 @@ class Romeniski {
 			String[] romeniski_skaiciai = { "M", "D", "C", "L", "X", "V", "I" };
 			int[] arabiski_skaiciai = { 1000, 500, 100, 50, 10, 5, 1 };
 			String [] substr = new String[10] ;
+			int suma = 0;
+			int skaicius = 0;
+			int skaicius_kitas = 0;
 			
 			for (i=0; i < romeniski_skaiciai.length; i++) {
 
@@ -30,16 +33,37 @@ class Romeniski {
 				substr [ i ] = romen_skaicius.substring( i, i + 1  );
 				System.out.println(substr [ i ]);
 			}
-			for (i=0; i < substr.length; i++){
+			for (i=0; i < romen_skaicius.length()-1; i++){
 				
 				
 				int nr_masyve = java.util.Arrays.asList(romeniski_skaiciai).indexOf(substr [ i ]);
 				
+				skaicius = arabiski_skaiciai [ nr_masyve ];
+					
+				skaicius_kitas = arabiski_skaiciai [ java.util.Arrays.asList(romeniski_skaiciai).indexOf(substr [ i + 1 ]) ];
+				
 				if ( nr_masyve >= 0 ) { 
 				
-					System.out.println(arabiski_skaiciai [ nr_masyve ]);
+					System.out.println(skaicius);
+					
+					if (  skaicius < skaicius_kitas ){
+						
+						skaicius = skaicius * (-1);
+					}
+					
+					suma = suma + skaicius;	
+					
+				} else {
+					
+					
+					System.out.println("Klaidos informacija: nerastas simbolis " + substr [ i ] + " romenisku skaiciu masyve" );
+					
 				}
+				
+
 			}
+			suma = suma + skaicius_kitas;
+			System.out.println( "Desimtaines sistemos reiksme " + suma );
 			
 		} catch( Exception e ) {
 			
