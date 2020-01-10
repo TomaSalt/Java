@@ -2,7 +2,7 @@
 import java.io.*;
 import java.util.*;
 
-class Desimtainiai {
+class Desimtainiai2 {
 
 	public static void main ( String[] args) {
 		
@@ -60,7 +60,7 @@ class Desimtainiai {
 					
 					if ( j !=0 ){
 		
-						if(((j % 2 == 0) && liekana/arabiski_skaiciai[j]*arabiski_skaiciai[j]  == (arabiski_skaiciai[ j - 1 ] - arabiski_skaiciai [ j ]))){
+						if((j % 2 == 0) && (liekana/arabiski_skaiciai[j]*arabiski_skaiciai[j]  == (arabiski_skaiciai[ j - 1 ] - arabiski_skaiciai [ j ]))){
 								
 							liekana = liekana - (arabiski_skaiciai[ j - 1 ] - arabiski_skaiciai [ j ]);
 							suma += romeniski_skaiciai [ j ] + romeniski_skaiciai [ j - 1 ];
@@ -73,7 +73,8 @@ class Desimtainiai {
 							System.out.println("Liekana2 " + liekana + "Suma" + suma);
 						}
 					}
-					if ( j == 0 ) {
+					if (liekana == 0) {break;};
+					if ( j == 0 || j == (arabiski_skaiciai.length - 1) ) {
 						
 						liekana = liekana - arabiski_skaiciai [ j ];
 						suma += romeniski_skaiciai [j];
@@ -96,7 +97,9 @@ class Desimtainiai {
 													
 							}
 						} else { 
-							if ( liekana != (arabiski_skaiciai [j - 1] - arabiski_skaiciai [j+1]) && (j !=arabiski_skaiciai.length-1)) {
+							System.out.println ( "liekana != (arabiski_skaiciai [j] - arabiski_skaiciai [j+2]): " + liekana + " != "  + (arabiski_skaiciai [j] - arabiski_skaiciai [j+2]) );
+							if (liekana != (arabiski_skaiciai [j] - arabiski_skaiciai [j+2])) {
+								System.out.println ( "going here :)) " );
 								suma += romeniski_skaiciai [j];
 								liekana = liekana - arabiski_skaiciai [j];
 								System.out.println("Liekana6 " + liekana + "Suma" + suma);
